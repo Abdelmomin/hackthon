@@ -14,10 +14,11 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  email    String
-  firsName String
-  lastName String
+  id           String  @id @default(uuid())
+  email        String
+  firsName     String
+  lastName     String
+  profileImage String?
 
   createdAt DateTime @default(now())
 }
