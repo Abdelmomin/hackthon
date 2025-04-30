@@ -16,6 +16,12 @@ export default async function HomePage() {
       where: { id: userId },
     });
 
+    if (userExists?.role === "DOCTOR") {
+      return redirect("/doctor/dashboard");
+    } else if (userExists?.role === "PATIENT") {
+      return redirect("/patient/dashboard");
+    }
+
     if (!userExists) {
       await prisma.user.create({
         data: {
